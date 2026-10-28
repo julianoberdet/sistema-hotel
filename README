@@ -1,0 +1,33 @@
+# 🏨 Sistema de Gerenciamento de Hotel (v2.0)
+
+Sistema de terminal desenvolvido em **Python** com persistência de dados em banco relacional **MySQL**, focado no gerenciamento eficiente de um hotel (quartos, clientes e reservas).
+
+Este projeto é a evolução de uma versão inicial baseada em arquivos de texto (`.txt`), totalmente refatorado para utilizar arquitetura modular e banco de dados relacional.
+
+---
+
+## 🚀 Funcionalidades da Versão 2.0
+
+- 📊 **Painel de Quartos:** Visualização em tempo real do status de cada quarto (Livre ou Ocupado), mostrando o hóspede atual e a nacionalidade.
+- 📝 **Check-in Completo:** Cadastro de clientes integrado (CPF, nome, data de nascimento, nacionalidade, peso, altura) e alocação automática de quarto com registro de data.
+- 🚪 **Check-out Ágil:** Liberação de quartos ocupados com registro da data de saída.
+- 👥 **Listagem de Clientes:** Exibição detalhada de todos os clientes cadastrados no sistema.
+- 🗑️ **Gerenciamento de Cadastros:** Opção para deletar clientes do sistema com tratamento de integridade referencial (limpeza automática de reservas associadas).
+- 🎨 **Interface Personalizada:** Menus estilizados via terminal com validações robustas de entrada de dados e suporte a cores (ANSI).
+
+---
+
+## 📂 Estrutura do Projeto
+
+O projeto segue uma arquitetura modular limpa:
+
+```text
+sistema-hotel/
+│
+├── lib/
+│   ├── dados/
+│   │   └── database.py      # Conexão com o MySQL
+│   └── interface.py         # Funções de layout, menus e validações de input
+│
+├── .gitignore               # Arquivos ignorados pelo Git (.venv, cache, etc.)
+└── sistema.py               # Arquivo principal com a lógica do sistema e menu loop
