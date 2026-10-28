@@ -1,5 +1,5 @@
 from lib.dados.database import conectar
-from lib.interface import cabecalho, menu, linha
+from lib.interface import *
 from datetime import date
 
 while True:
@@ -39,15 +39,15 @@ while True:
 
     elif opcao == 2:
         cabecalho('CHECK-IN COMPLETO')
-        cpf = input('CPF: ')
-        nome = input('Nome: ')
-        nasc = input('Data nascimento AAAA-MM-DD: ')
-        nacionalidade = input('Nacionalidade: ')
-        peso = input('Peso: ')
-        altura = input('Altura: ')
+        cpf = leiaInt('CPF: ')
+        nome = leiaStr('Nome: ')
+        nasc = leiaInt('Data nascimento AAAA-MM-DD: ')
+        nacionalidade = leiaStr('Nacionalidade: ')
+        peso = leiaFloat('Peso: ')
+        altura = leiaFloat('Altura: ')
 
         try:
-            num_quarto = int(input('Número do quarto: '))
+            num_quarto = leiaInt('Número do quarto: ')
         except ValueError:
             print("\033[31mErro: Número do quarto inválido!\033[m")
             continue
@@ -83,7 +83,7 @@ while True:
 
     elif opcao == 3:
         cabecalho('CHECK-OUT')
-        num = input('Número do quarto para check-out: ')
+        num = leiaInt('Número do quarto para check-out: ')
         con = conectar()
         cur = con.cursor()
         try:
@@ -118,7 +118,7 @@ while True:
 
     elif opcao == 5:
         cabecalho('DELETAR CLIENTE')
-        cpf_del = input('Digite o CPF do cliente que deseja deletar: ')
+        cpf_del = leiaInt('Digite o CPF do cliente que deseja deletar: ')
         con = conectar()
         cur = con.cursor()
         try:
